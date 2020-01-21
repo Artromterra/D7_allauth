@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block title %}Создание авторов и книг{% endblock title %}
+{% block header %}Создание авторов и книг{% endblock header %}
+{% block content %} 
+<form method="post"> 
+  {{ author_formset.management_form }}
+  {{ book_formset.management_form }}
+  {% csrf_token %}  
+  {% for form in author_formset %} 
+  <h5>Автор</h5> 
+      {{ form.as_ul }}  
+      <br>  
+  {% endfor %}  
+  
+  {% for form in book_formset %}
+  <h5>Книга</h5>  
+      {{ form.as_ul }}  
+      <br>  
+  {% endfor %}  
+  <input type="submit" class="btn btn-primary" value="Сохранить"/>  
+</form>  
+{% endblock %}

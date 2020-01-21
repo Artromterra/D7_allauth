@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Издатели{% endblock title %}
+{% block header %}Издатель и их книги:{% endblock header %}
+{% block content %} 
+    {% for publisher in publishers %}
+        <ul class="list-group">
+            <li class="list-group-item-success">
+                <h4>Издатель: {{ publisher.name }}</h4><br>
+                <ul class="list-group">
+                    {% for book in publisher.books.all %}
+                        <li class="list-group-item"> {{ book.title }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

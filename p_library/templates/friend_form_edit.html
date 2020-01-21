@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+{% block title %}Создать друзей{% endblock title %}
+{% block header %}Записать друга{% endblock header %}
+{% block content %}
+    <form method="post">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <input type="submit" class="btn btn-primary" value="Сохранить">  
+    </form>  
+{% endblock content %}

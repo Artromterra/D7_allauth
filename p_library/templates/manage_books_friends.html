@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block title %}Форма ввода имени друга и книг{% endblock title %}
+{% block header %}Форма ввода имени друга и книг{% endblock header %}
+{% block content %} 
+<form method="post"> 
+  {{ friend_formset.management_form }}
+  {{ book_formset.management_form }}
+  {% csrf_token %}  
+  {% for form in friend_formset %}  
+      {{ form.as_ul }}  
+      <br>  
+  {% endfor %}  
+  
+  {% for form in book_formset %}  
+      {{ form.as_ul }}  
+      <br>  
+  {% endfor %}  
+<input type="submit" class="btn btn-primary" value="Сохранить"/>  
+</form>  
+{% endblock %}
